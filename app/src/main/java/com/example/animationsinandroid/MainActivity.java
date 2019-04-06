@@ -1,16 +1,20 @@
 package com.example.animationsinandroid;
 
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    //class declarations
     private TextView tvHelloWorld;
     private TextView tvHiWorld;
-
+    private ImageView ivLion;
+    private ImageView ivLeopard;
     private boolean isHelloWorldShowing; //boolean defaults to false
 
     @Override
@@ -18,13 +22,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //initialize our views
         tvHelloWorld = findViewById(R.id.tvHelloWorld);
         tvHiWorld = findViewById(R.id.tvHiWorld);
-
+        ivLion = findViewById(R.id.ivLion);
+        ivLeopard = findViewById(R.id.ivLeopard);
 
         tvHelloWorld.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
 /*
               //  Log.i("MyTag", "Hello World!!");
                 tvHelloWorld.animate().alpha(0).setDuration(3000); //1000 = 1 sec
@@ -44,6 +52,15 @@ public class MainActivity extends AppCompatActivity {
                     tvHiWorld.animate().alpha(0).setDuration(3000); //1000 = 1 sec
                     isHelloWorldShowing = true;
                 }
+            }
+        });
+
+        ivLion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ivLion.animate().translationX(3000).setDuration(2000);
+                ivLion.animate().translationX(-3000).setDuration(2000);
             }
         });
     }
